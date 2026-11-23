@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Preserve exported artwork and font files byte-for-byte.
+*.pdf binary
+*.png binary
+*.ttf binary

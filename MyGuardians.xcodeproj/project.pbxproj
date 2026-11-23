@@ -20,10 +20,8 @@
 		8366146AAD467AF941D2B0AA /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70E938A05D79AE4BA364953 /* FindView.swift */; };
 		868AF631710C83D5687996F3 /* VisionMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4A77B737E009D9497447CA /* VisionMatcher.swift */; };
 		93C94A0F1EBC13158CDC3417 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2702ACF62F523A066C5CB3 /* RootView.swift */; };
-		AA7FB8971D20410AFEA1BAA2 /* PUT_PATRICK_HAND_HERE.txt in Resources */ = {isa = PBXBuildFile; fileRef = EC076184B1134B9580B9ACEB /* PUT_PATRICK_HAND_HERE.txt */; };
 		ADFF7BB853A397403AD21C74 /* CreateGuardianFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0810198F07FA4EFE6420E66 /* CreateGuardianFlow.swift */; };
 		B493B10D5A0D4D1F819008A1 /* NavigationIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B493B10D5A0D4D1F819008A2 /* NavigationIcons.xcassets */; };
-		B493B10D5A0D4D1F819008B1 /* HomeArtwork.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B493B10D5A0D4D1F819008B2 /* HomeArtwork.xcassets */; };
 		B493B10D5A0D4D1F819008C1 /* ScreenArtwork.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B493B10D5A0D4D1F819008C2 /* ScreenArtwork.xcassets */; };
 		B493B10D5A0D4D1F819008B3 /* HomeWandering.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493B10D5A0D4D1F819008B4 /* HomeWandering.swift */; };
 		B493B10D5A0D4D1F819008B5 /* HomePreviewFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = B493B10D5A0D4D1F819008B6 /* HomePreviewFixtures.swift */; };
@@ -45,7 +43,6 @@
 		69AA928A19128CB88B29D986 /* MyGuardians.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGuardians.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4A77B737E009D9497447CA /* VisionMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionMatcher.swift; sourceTree = "<group>"; };
 		B493B10D5A0D4D1F819008A2 /* NavigationIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NavigationIcons.xcassets; sourceTree = "<group>"; };
-		B493B10D5A0D4D1F819008B2 /* HomeArtwork.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HomeArtwork.xcassets; sourceTree = "<group>"; };
 		B493B10D5A0D4D1F819008C2 /* ScreenArtwork.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ScreenArtwork.xcassets; sourceTree = "<group>"; };
 		B493B10D5A0D4D1F819008B4 /* HomeWandering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWandering.swift; sourceTree = "<group>"; };
 		B493B10D5A0D4D1F819008B6 /* HomePreviewFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePreviewFixtures.swift; sourceTree = "<group>"; };
@@ -53,7 +50,6 @@
 		BD7907F2D2C3D655B552C1EF /* SaveMemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveMemoryView.swift; sourceTree = "<group>"; };
 		C099FE736DFF8D82521CF60E /* OptionalLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalLocation.swift; sourceTree = "<group>"; };
 		D0810198F07FA4EFE6420E66 /* CreateGuardianFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGuardianFlow.swift; sourceTree = "<group>"; };
-		EC076184B1134B9580B9ACEB /* PUT_PATRICK_HAND_HERE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = PUT_PATRICK_HAND_HERE.txt; sourceTree = "<group>"; };
 		F70E938A05D79AE4BA364953 /* FindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindView.swift; sourceTree = "<group>"; };
 		FCEE69E93A8BB73AEB6468A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,12 +85,10 @@
 		46EBBE20FE9C461F2ABD2E1D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B493B10D5A0D4D1F819008B2 /* HomeArtwork.xcassets */,
 				B493B10D5A0D4D1F819008C2 /* ScreenArtwork.xcassets */,
 				B493B10D5A0D4D1F819008A2 /* NavigationIcons.xcassets */,
 				46BD3A38E99A47E29DCCF2B8 /* OFL.txt */,
 				30E8F0E52A7E45BCA1ED5C04 /* PatrickHand-Regular.ttf */,
-				EC076184B1134B9580B9ACEB /* PUT_PATRICK_HAND_HERE.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -204,12 +198,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B493B10D5A0D4D1F819008B1 /* HomeArtwork.xcassets in Resources */,
 				B493B10D5A0D4D1F819008C1 /* ScreenArtwork.xcassets in Resources */,
 				B493B10D5A0D4D1F819008A1 /* NavigationIcons.xcassets in Resources */,
 				1652E45BD5A84478BDB3CB4F /* OFL.txt in Resources */,
 				DCA75EFB8A464C1191BB355D /* PatrickHand-Regular.ttf in Resources */,
-				AA7FB8971D20410AFEA1BAA2 /* PUT_PATRICK_HAND_HERE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

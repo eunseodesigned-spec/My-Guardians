@@ -2,8 +2,8 @@ import Foundation
 import UIKit
 import Vision
 
-/// Best-effort image similarity. This is NOT a 3D object-recognition or AR-anchor engine.
-/// Use distinctive, well-lit objects and repeat the registration angle for a demo.
+/// Compares Vision feature prints against registered object reference images.
+/// Matching depends on lighting, framing, and viewpoint; it does not provide 3D tracking.
 final class VisionMatcher {
     private var known: [(UUID, VNFeaturePrintObservation)] = []
 

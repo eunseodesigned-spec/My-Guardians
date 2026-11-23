@@ -1,5 +1,0 @@
-PatrickHand-Regular.ttf is included in this directory and in the app target's Copy Bundle Resources.
-Info.plist registers it under UIAppFonts. Its PostScript name is PatrickHand-Regular.
-Use OGType for SwiftUI text and UIKit image text; the app also supplies OGType.body as its default.
-OFL.txt contains the font's SIL Open Font License and copyright notice.
-Debug launches verify the bundled file and UIKit font lookup, then log the resolved font name.
