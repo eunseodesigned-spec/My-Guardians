@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Xcode user settings and local build products
+xcuserdata/
+*.xcuserstate
+*.xcuserdatad/
+DerivedData/
+build/
+Build/
+*.xcarchive/
+*.ipa
+*.dSYM/
+*.dSYM.zip
+*.xcresult/
+.build/
+
+# Local environment and editor/build-server configuration
+.env
+.env.*
+.vscode/
+buildServer.json
+
+# Signing credentials and provisioning
+*.p12
+*.pfx
+*.pem
+*.key
+*.cer
+*.crt
+*.certSigningRequest
+*.mobileprovision
+*.provisionprofile
