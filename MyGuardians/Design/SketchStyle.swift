@@ -586,8 +586,42 @@ struct SketchHeader: View {
 
 struct GuardianArtwork: View {
     let filename: String
+    var trimTransparentMargins = false
     var body: some View {
-        ArtworkLoader(filename: filename)
+        ArtworkLoader(filename: filename, trimTransparentMargins: trimTransparentMargins)
+    }
+}
+
+/// Removes only transparent canvas margins for collection thumbnails; never edits saved files.
+private enum GuardianThumbnailCrop {
+    static let cache = NSCache<NSString, UIImage>()
+
+    static func image(_ image: UIImage, key: String) -> UIImage {
+        if let cached = cache.object(forKey: key as NSString) { return cached }
+        guard let source = image.cgImage else { return image }
+        let width = source.width, height = source.height
+        var pixels = [UInt8](repeating: 0, count: width * height * 4)
+        let bounds: CGRect? = pixels.withUnsafeMutableBytes { bytes in
+            guard let context = CGContext(data: bytes.baseAddress, width: width, height: height,
+                bitsPerComponent: 8, bytesPerRow: width * 4, space: CGColorSpaceCreateDeviceRGB(),
+                bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue),
+                let data = bytes.baseAddress?.assumingMemoryBound(to: UInt8.self) else { return nil }
+            context.draw(source, in: CGRect(x: 0, y: 0, width: width, height: height))
+            var minX = width, minY = height, maxX = -1, maxY = -1
+            for y in 0..<height {
+                for x in 0..<width where data[(y * width + x) * 4 + 3] > 0 {
+                    minX = min(minX, x); maxX = max(maxX, x)
+                    minY = min(minY, y); maxY = max(maxY, y)
+                }
+            }
+            guard maxX >= minX, maxY >= minY else { return nil }
+            return CGRect(x: minX, y: minY, width: maxX - minX + 1, height: maxY - minY + 1)
+        }
+        let result = bounds.flatMap { source.cropping(to: $0) }.map {
+            UIImage(cgImage: $0, scale: image.scale, orientation: image.imageOrientation)
+        } ?? image
+        cache.setObject(result, forKey: key as NSString)
+        return result
     }
 }
 
@@ -595,10 +629,13 @@ struct GuardianArtwork: View {
 private struct ArtworkLoader: View {
     @EnvironmentObject private var store: GuardianStore
     let filename: String
+    var trimTransparentMargins = false
     var body: some View {
         Group {
             if let ui = store.image(filename) {
-                Image(uiImage: ui).resizable().scaledToFit()
+                Image(uiImage: trimTransparentMargins
+                      ? GuardianThumbnailCrop.image(ui, key: "\(ObjectIdentifier(store))-\(filename)") : ui)
+                    .resizable().scaledToFit()
             } else {
                 Image(systemName: "scribble.variable").resizable().scaledToFit().padding(20)
             }

@@ -88,28 +88,32 @@ extension Notification.Name {
 private struct NavigationBarPlacement: ViewModifier {
     @Binding var selected: MainTab
     var reduceMotion: Bool? = nil
-    @State private var bottomPadding: CGFloat = 0
+    @Environment(\.displayScale) private var displayScale
 
     func body(content: Content) -> some View {
-        let currentPadding = bottomPadding
-        content
-                .safeAreaInset(edge: .bottom, spacing: 0) {
-                    SketchBottomNavigation(selected: $selected, reduceMotionOverride: reduceMotion)
-                        .background {
-                            WindowBottomEdgeAnchor { correction in
-                                let padding = currentPadding - correction
-                                guard abs(padding - bottomPadding) > 0.1 else { return }
-                                var transaction = Transaction(animation: nil)
-                                transaction.disablesAnimations = true
-                                withTransaction(transaction) { bottomPadding = padding }
-                            }
+        GeometryReader { geometry in
+            // Root geometry is stable when camera content ignores its own safe area.
+            // Account for the SVG's existing two-pixel clear edge without measuring
+            // the bar and feeding its resulting position back into layout state.
+            let outlineInset = 2 / max(displayScale, 1)
+            let bottomOffset = geometry.safeAreaInsets.bottom - OGLayout.standaloneBottomGap + outlineInset
+            ZStack(alignment: .bottom) {
+                content
+                    .safeAreaInset(edge: .bottom, spacing: 0) {
+                        Color.clear
+                            .frame(height: max(0, 74 + 8 - bottomOffset))
                             .allowsHitTesting(false)
-                        }
-                        .padding(.horizontal, navigationMargin)
-                        .padding(.top, 8)
-                        .padding(.bottom, bottomPadding)
-                        .background(Color.clear)
-                }
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .zIndex(0)
+                SketchBottomNavigation(selected: $selected, reduceMotionOverride: reduceMotion)
+                    .padding(.horizontal, navigationMargin)
+                    .offset(y: bottomOffset)
+                    .background(Color.clear)
+                    .zIndex(1)
+            }
+            .frame(width: geometry.size.width, height: geometry.size.height)
+        }
         .background(Color.ogBackground)
     }
 }

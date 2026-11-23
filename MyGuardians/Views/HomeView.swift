@@ -70,7 +70,6 @@ struct HomeView: View {
         let size = CGSize(width: canvas.width * scale, height: canvas.height * scale)
         let motionScaleX = size.width / HomeWandering.canvasSize.width
         let motionScaleY = size.height / HomeWandering.canvasSize.height
-        let artworkScale = min(motionScaleX, motionScaleY)
 
         return ZStack {
             Image("home-redesign-house")
@@ -99,9 +98,8 @@ struct HomeView: View {
                             if let point = wandering.position(for: guardian.id) {
                                 Button { selectedGuardian = guardian } label: {
                                     // drawingFile is the saved combined object cutout + drawing.
-                                    GuardianArtwork(filename: guardian.drawingFile)
-                                        .frame(width: wandering.artworkSize.width * artworkScale,
-                                               height: wandering.artworkSize.height * artworkScale)
+                                    GuardianArtwork(filename: guardian.drawingFile, trimTransparentMargins: true)
+                                        .frame(width: 60, height: 60)
                                 }
                                 .buttonStyle(.plain)
                                 .position(x: point.x * motionScaleX, y: point.y * motionScaleY)

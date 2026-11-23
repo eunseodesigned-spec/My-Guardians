@@ -468,7 +468,11 @@ struct CreateGuardianFlow: View {
 
     private var finishedActions: some View {
         HStack(spacing: OGLayout.buttonPairGap) {
-            SketchButton(label: "Done", prominent: onFindAgain == nil) { dismiss() }
+            SketchButton(label: "Done", prominent: onFindAgain == nil) {
+                var transaction = Transaction(animation: nil)
+                transaction.disablesAnimations = true
+                withTransaction(transaction) { dismiss() }
+            }
                 .accessibilityIdentifier("create-done")
             if let onFindAgain {
                 SketchButton(label: "Say hello again", prominent: true) {

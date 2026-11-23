@@ -7,9 +7,9 @@ import CoreImage
 final class CameraManager: NSObject, ObservableObject {
     let session = AVCaptureSession()
     @Published private(set) var permissionDenied = false
-    @Published private(set) var latestFrame: UIImage?
+    private(set) var latestFrame: UIImage?
     @Published private(set) var autoMatch: RecognizedGuardian?
-    @Published private(set) var possibleMatch: RecognizedGuardian?
+    private(set) var possibleMatch: RecognizedGuardian?
     @Published private(set) var isReady = false
 
     private let sessionQueue = DispatchQueue(label: "og.camera.session")
@@ -166,7 +166,8 @@ extension CameraManager: AVCaptureVideoDataOutputSampleBufferDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             self.latestFrame = image
-            if let accepted, !self.dismissedMatchIDs.contains(accepted.guardianID) {
+            if let accepted, !self.dismissedMatchIDs.contains(accepted.guardianID),
+               self.autoMatch != accepted {
                 self.autoMatch = accepted
             }
             self.possibleMatch = guess
@@ -184,6 +185,7 @@ struct CameraPreview: UIViewRepresentable {
     func makeUIView(context: Context) -> CameraLayerView {
         let view = CameraLayerView()
         view.backgroundColor = UIColor(Color.ogBackground)
+        view.isUserInteractionEnabled = false
         view.previewLayer.session = session
         view.previewLayer.videoGravity = .resizeAspectFill
         return view

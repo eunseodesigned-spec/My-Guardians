@@ -26,8 +26,8 @@ struct ShelfView: View {
                         ForEach(store.guardians) { guardian in
                             Button { selection = guardian } label: {
                                 SketchCard(content: VStack(spacing: 4) {
-                                    GuardianArtwork(filename: guardian.drawingFile)
-                                        .frame(height: 96)
+                                    GuardianArtwork(filename: guardian.drawingFile, trimTransparentMargins: true)
+                                        .frame(width: 100, height: 100)
                                         .frame(maxWidth: .infinity)
                                         .padding(.bottom, 8)
                                     Text(guardian.name)
@@ -97,9 +97,9 @@ struct GuardianDetailView: View {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 16) {
                             VStack(spacing: 6) {
-                                GuardianArtwork(filename: guardian.drawingFile)
+                                GuardianArtwork(filename: guardian.drawingFile, trimTransparentMargins: true)
+                                    .frame(width: 100, height: 100)
                                     .frame(width: OGLayout.profileArtworkSize, height: OGLayout.profileArtworkSize)
-                                    .scaleEffect(1.15)
                                 Text(guardian.name)
                                     .font(OGType.title)
                                     .fixedSize(horizontal: false, vertical: true)
