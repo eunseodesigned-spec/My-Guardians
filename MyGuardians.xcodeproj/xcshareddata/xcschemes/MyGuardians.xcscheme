@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C1D97CA7719B88A7E1B888AF"
-               BuildableName = "ObjectGuardiansB.app"
-               BlueprintName = "ObjectGuardiansB"
-               ReferencedContainer = "container:ObjectGuardiansB.xcodeproj">
+               BuildableName = "MyGuardians.app"
+               BlueprintName = "MyGuardians"
+               ReferencedContainer = "container:MyGuardians.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,9 +32,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C1D97CA7719B88A7E1B888AF"
-            BuildableName = "ObjectGuardiansB.app"
-            BlueprintName = "ObjectGuardiansB"
-            ReferencedContainer = "container:ObjectGuardiansB.xcodeproj">
+            BuildableName = "MyGuardians.app"
+            BlueprintName = "MyGuardians"
+            ReferencedContainer = "container:MyGuardians.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C1D97CA7719B88A7E1B888AF"
-            BuildableName = "ObjectGuardiansB.app"
-            BlueprintName = "ObjectGuardiansB"
-            ReferencedContainer = "container:ObjectGuardiansB.xcodeproj">
+            BuildableName = "MyGuardians.app"
+            BlueprintName = "MyGuardians"
+            ReferencedContainer = "container:MyGuardians.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C1D97CA7719B88A7E1B888AF"
-            BuildableName = "ObjectGuardiansB.app"
-            BlueprintName = "ObjectGuardiansB"
-            ReferencedContainer = "container:ObjectGuardiansB.xcodeproj">
+            BuildableName = "MyGuardians.app"
+            BlueprintName = "MyGuardians"
+            ReferencedContainer = "container:MyGuardians.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

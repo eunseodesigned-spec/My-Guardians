@@ -40,8 +40,8 @@ This project followed a designer-led, AI-assisted workflow:
 
 **Requirements:** A Mac with a compatible Xcode installation, an iPhone, and an Apple Account configured for development signing.
 
-1. Clone this repository and open its Xcode project (`.xcodeproj` or `.xcworkspace`, depending on the checked-in project structure).
-2. Select the app target in Xcode, open **Signing & Capabilities**, and configure your development team.
+1. Clone this repository and open `MyGuardians.xcodeproj`.
+2. Select the `MyGuardians` scheme and app target in Xcode, open **Signing & Capabilities**, and configure your development team.
 3. Connect and unlock an iPhone, and select it as the run destination.
 4. Press **Command-R** to build and run. Approve device trust or Developer Mode if iOS requests it.
 5. Grant requested camera or photo permissions when needed.
@@ -49,3 +49,11 @@ This project followed a designer-led, AI-assisted workflow:
 ## Project context
 
 My Guardians is a personal product-design exploration, developed with AI assistance for ideation, planning, coding, and debugging. The project showcases the iterative process of moving from sketches and Figma wireframes to a native prototype, with design evaluation at each step.
+
+## Project identity and storage
+
+- Project, target, product, and shared scheme: `MyGuardians`.
+- SwiftUI entry point: `MyGuardians/MyGuardiansApp.swift`.
+- Display name: **My Guardians**.
+- Bundle identifier: `com.objectguardians.prototype.b` (unchanged).
+- Saved guardians and memories remain in the app’s existing `Documents/ObjectGuardians` directory. Renaming the project does not migrate or reset app data.

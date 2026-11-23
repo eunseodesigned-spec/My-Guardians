@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct ObjectGuardiansApp: App {
+struct MyGuardiansApp: App {
     @StateObject private var store = GuardianStore()
 
     init() {
